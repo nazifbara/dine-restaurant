@@ -2,4 +2,10 @@
 	import '../app.css'
 </script>
 
-<slot />
+<svelte:head>
+	<title>Dine Restaurant</title>
+</svelte:head>
+
+<main>
+	<slot />
+</main>
