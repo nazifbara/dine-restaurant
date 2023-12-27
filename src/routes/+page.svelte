@@ -1,1 +1,1 @@
-<h1>Dine</h1>
+<h1 class="text-5xl">Dine</h1>

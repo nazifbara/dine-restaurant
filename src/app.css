@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 html {
-  @apply font-sans;
+  @apply font-sans text-text;
+}
+
+@layer base {
+  :root {
+    --color-text: 218 21% 18%;
+    --color-surface: 0 0% 100%;
+  }
+}
+
+@layer utilities {
+  .dark {
+    --color-text: 0 0% 100%;
+    --color-surface: 0 0% 7%;
+  }
 }
