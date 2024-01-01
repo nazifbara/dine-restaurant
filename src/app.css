@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+
+body {
   font-family: theme('fontFamily.sans');
   color: theme('colors.text');
 
@@ -30,6 +31,15 @@ html {
 }
 
 @layer components {
+  .btn {
+    height: 4rem;
+    padding-inline: 1.5rem;
+    display: grid;
+    place-content: center;
+    justify-content: center;
+    @apply transition-colors typo typo--s text-primary-2 border border-primary-2 hover:bg-primary-2 hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-secondary-1;
+  }
+
   .typo {
     --_fsize: var(--fsize, inherit);
     --_fweight: var(--fweight, theme('fontWeight.bold'));
@@ -70,7 +80,7 @@ html {
     --fweight: theme('fontWeight.semibold');
 
     text-transform: uppercase;
-    letter-spacing: theme('letterSpacing.wider');
+    letter-spacing: theme('letterSpacing.widest');
   }
 
   .typo--body-1 {
