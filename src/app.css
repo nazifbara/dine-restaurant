@@ -3,7 +3,16 @@
 @tailwind utilities;
 
 html {
-  @apply font-sans text-text;
+  font-family: theme('fontFamily.sans');
+  color: theme('colors.text');
+
+  font-size: theme('fontSize.base[0]');
+  line-height: theme('fontSize.base[1].lineHeight');
+
+  @media (min-width: theme('screens.md')) {
+    font-size: theme('fontSize.xl[0]');
+    line-height: theme('fontSize.xl[1].lineHeight');
+  }
 }
 
 @layer base {
@@ -17,5 +26,62 @@ html {
   .dark {
     --color-text: 0 0% 100%;
     --color-surface: 0 0% 7%;
+  }
+}
+
+@layer components {
+  .typo {
+    --_fsize: var(--fsize, inherit);
+    --_fweight: var(--fweight, theme('fontWeight.bold'));
+
+    color: theme('colors.text');
+    font-weight: var(--_fsize);
+    font-size: var(--_fsize);
+    line-height: normal;
+  }
+
+  .typo--xl {
+    --fsize: 2rem;
+    --fweight: theme('fontWeight.light');
+
+    @media (min-width: theme('screens.md')) {
+      --fsize: 3rem;
+    }
+
+    @media (min-width: theme('screens.lg')) {
+      --fsize: 5rem;
+    }
+  }
+
+  .typo--l {
+    --fsize: 2rem;
+
+    @media (min-width: theme('screens.md')) {
+      --fsize: 3rem;
+    }
+  }
+
+  .typo--m {
+    --fsize: 1.25rem;
+  }
+
+  .typo--s {
+    --fsize: 1.0625rem;
+    --fweight: theme('fontWeight.semibold');
+
+    text-transform: uppercase;
+    letter-spacing: theme('letterSpacing.wider');
+  }
+
+  .typo--body-1 {
+    --fsize: theme('fontSize.xl[0]');
+
+    line-height: theme('fontSize.xl[1].lineHeight');
+  }
+
+  .typo--body-2 {
+    --fsize: theme('fontSize.base[0]');
+
+    line-height: theme('fontSize.base[1].lineHeight');
   }
 }
