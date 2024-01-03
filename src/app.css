@@ -3,10 +3,13 @@
 @tailwind utilities;
 
 
+html {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+}
+
 body {
   font-family: theme('fontFamily.sans');
-  color: theme('colors.text');
-
   font-size: theme('fontSize.base[0]');
   line-height: theme('fontSize.base[1].lineHeight');
 
@@ -14,6 +17,10 @@ body {
     font-size: theme('fontSize.xl[0]');
     line-height: theme('fontSize.xl[1].lineHeight');
   }
+}
+
+p {
+  color: theme('colors.text');
 }
 
 @layer base {
@@ -27,6 +34,21 @@ body {
   .dark {
     --color-text: 0 0% 100%;
     --color-surface: 0 0% 7%;
+  }
+
+  .wrapper {
+    --_gutter: var(--gutter, 24px);
+    --size: 1110px;
+    width: min(100% - var(--_gutter), var(--size));
+    margin-inline: auto;
+
+    @media (min-width: theme('screens.md')) {
+      --gutter: 40px;
+    }
+
+    @media (min-width: theme('screens.lg')) {
+      --gutter: 0px;
+    }
   }
 }
 
@@ -45,9 +67,9 @@ body {
     --_fweight: var(--fweight, theme('fontWeight.bold'));
 
     color: theme('colors.text');
-    font-weight: var(--_fsize);
+    font-weight: var(--_fweight);
     font-size: var(--_fsize);
-    line-height: normal;
+    line-height: 1.1;
   }
 
   .typo--xl {
